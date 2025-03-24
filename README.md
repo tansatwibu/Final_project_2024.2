@@ -1,9 +1,9 @@
 # Final_project_2024.2
-# BÁO CÁO DẬN ÁN
+# BÁO CÁO ĐỒ ÁN
 
 ## **1. Giới Thiệu**
 ### **1.1. Tên dự án**
-HỆ THỐNG KIỂM TRA NĂNG SUẤT CÔNG NHÂN BẰNG RFID VÀ ESP32
+HỆ THỐNG KIỂM TRA NĂNG SUẤT CÔNG NHÂN BẰNG RFID VÀ ESP8266
 
 ### **1.2. Mô tả tóm tắt**
 Dự án nhằm xây dựng một hệ thống giám sát năng suất công nhân trên dây chuyền sản xuất bằng cách gán thẻ RFID cho sản phẩm, sử dụng ESP32 để ghi nhận thời gian vào/ra của sản phẩm tại hai đầu dây chuyền. Dữ liệu được ghi lại và gửi lên MySQL để phân tích năng suất công nhân theo ca.
