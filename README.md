@@ -3,7 +3,7 @@
 
 ## **1. Giới Thiệu**
 ### **1.1. Tên dự án**
-HỆ THỐNG KIỂM TRA NĂNG SUẤT CÔNG NHÂN BẰNG RFID VÀ ESP8266
+HỆ THỐNG KIỂM TRA NĂNG SUẤT CÔNG NHÂN QUA RFID, QR CODE, BARCODE SỬ DỤNG VI ĐIỀU KHIỂN ESP32
 
 ### **1.2. Mô tả tóm tắt**
 Dự án nhằm xây dựng một hệ thống giám sát năng suất công nhân trên dây chuyền sản xuất bằng cách gán thẻ RFID cho sản phẩm, sử dụng ESP32 để ghi nhận thời gian vào/ra của sản phẩm tại hai đầu dây chuyền. Dữ liệu được ghi lại và gửi lên MySQL để phân tích năng suất công nhân theo ca.
@@ -20,10 +20,14 @@ Dự án nhằm xây dựng một hệ thống giám sát năng suất công nh�
 ### **3.1. RFID (Radio Frequency Identification)**
 - RFID là công nghệ sử dụng sóng vô tuyến để truyền dữ liệu.
 - Mỗi thẻ RFID có mã UID duy nhất, được dùng để nhận diện sản phẩm.
-
+### **3.2. GM65**
+- GM65 là một module quét mã vạch và QR code có kích thước nhỏ gọn, tích hợp cảm biến CMOS và thuật toán giải mã mạnh mẽ.
+- Có thể quét các loại mã 1D và 2D với tốc độ cao.
+- Module có thể kết nối trực tiếp đến máy tính thông qua cổng USB, gửi dữ liệu và hiển thị lên một phần mềm soạn thảo bất kì (Notepad, Word,...)
 ### **3.2. ESP32**
 - ESP32 là vi điều khiển có WiFi, Bluetooth, vận hành tốt với RFID.
 - Giao tiếp với module RFID qua SPI.
+- Giao tiếp với module GM65 qua UART.(Chưa làm xong)
 
 ### **3.3. MySQL**
 - MySQL là hệ quản trị cơ sở dữ liệu quan hệ (SQL).
@@ -32,7 +36,7 @@ Dự án nhằm xây dựng một hệ thống giám sát năng suất công nh�
 ---
 ## **4. Thiết Kế Hệ Thống**
 ### **4.1. Sơ Đồ Kết Nối**
-ESP32 giao tiếp với 2 module RFID RC522 qua SPI:
+ESP32 giao tiếp với module RFID RC522 qua SPI và module GM65 qua UART
 
 ### **4.2. Luồng Hoạt Động**
 1. RFID 1 quét thẻ → Lưu ID sản phẩm + thời gian vào.
