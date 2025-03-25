@@ -56,6 +56,7 @@ ESP32 giao tiếp với module RFID RC522 qua SPI và module GM65 qua UART
 ---
 ## **6. Kết Quả
 1. Chạy mạch RFID: Đã chạy thành công mạch RFID kết nối với ESP32, UID của thẻ sau khi quét cảm biến được hiển thị trên Serial Monitor của Arduino IDE.
+  - Dữ liệu UID của thẻ được lưu lần lượt trên một cột trong Google sheet
 2. Các phương án sử dụng module GM65:
   - Kết nối trực tiếp qua laptop: Dữ liệu QRcode, Barcode được quét và gửi trực tiếp qua kết nối USB. Hiển thị trên một ứng dụng soạn thảo bất kì (Notepad, Word)
   - Kết nối với esp32 (chưa làm xong)
