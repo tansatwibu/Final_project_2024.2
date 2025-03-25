@@ -54,15 +54,8 @@ ESP32 giao tiếp với module RFID RC522 qua SPI và module GM65 qua UART
    - Lưu dữ liệu vào MySQL.
 
 ---
-## **6. Kết Quả & Đánh Giá**
-### **6.1. Kết Quả**
-- Hệ thống đo được thời gian sản xuất của từng sản phẩm.
-- Gửi dữ liệu vào MySQL thành công.
-- Truy vấn vào bảng MySQL để phân tích dữ liệu.
-
-### **6.2. Hạn Chế & Hướng Phát Triển**
-- **Hạn chế**: Có độ trễ sai nếu RFID không đọc được thẻ.
-- **Phát triển**:
-  - kết hợp thêm với mã QR và mã vạch
-  - Kết hợp màn OLED hiển thị năng suất theo giờ.
-  - Thêm cảm biến h
+## **6. Kết Quả
+1. Chạy mạch RFID: Đã chạy thành công mạch RFID kết nối với ESP32, UID của thẻ sau khi quét cảm biến được hiển thị trên Serial Monitor của Arduino IDE.
+2. Các phương án sử dụng module GM65:
+  - Kết nối trực tiếp qua laptop: Dữ liệu QRcode, Barcode được quét và gửi trực tiếp qua kết nối USB. Hiển thị trên một ứng dụng soạn thảo bất kì (Notepad, Word)
+  - Kết n
