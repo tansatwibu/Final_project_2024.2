@@ -29,8 +29,8 @@ Dự án nhằm xây dựng một hệ thống giám sát năng suất công nh�
 - Giao tiếp với module RFID qua SPI.
 - Giao tiếp với module GM65 qua UART.(Chưa làm xong)
 
-### **3.3. MySQL**
-- MySQL là hệ quản trị cơ sở dữ liệu quan hệ (SQL).
+### **3.3. PostgreSQL**
+- PostgreSQL là hệ quản trị cơ sở dữ liệu quan hệ (SQL).
 - Lưu dữ liệu vào bảng **production** gồm: `id`, `product_id`, `entry_time`, `exit_time`, `duration`. (Chưa làm xong)
 
 ---
@@ -47,11 +47,11 @@ ESP32 giao tiếp với module RFID RC522 qua SPI và module GM65 qua UART
 ---
 ## **5. Cài Đặt & Lắp Ráp**
 1. Kết nối phần cứng theo sơ đồ.
-2. Làm một cơ sở dữ liệu MySQL.
+2. Làm một cơ sở dữ liệu PostgreSQL.
 3. Viết code ESP32 để:
    - Kết nối WiFi.
    - Đọc thẻ RFID.
-   - Lưu dữ liệu vào MySQL.
+   - Lưu dữ liệu vào PostgreSQL.
 
 ---
 ## **6. Kết Quả
