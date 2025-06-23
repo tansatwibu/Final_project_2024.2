@@ -64,3 +64,16 @@ ESP32 giao tiếp với module RFID RC522 qua SPI và module GM65 qua UART
   - Chia sẻ chung các chân SCK (CLK), MISO, MOSI, GND, VCC.
   - Sử dụng chân SS (SDA/CS) riêng cho từng module.
 4. Xây dựng Database sử dụng Posgresql và web server (chưa triển khai)
+
+
+
+
+
+
+
+
+
+```bash
+git clone https://github.com/yourusername/your-project.git
+cd your-project
+
