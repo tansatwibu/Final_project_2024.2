@@ -1,8 +1,10 @@
 {
-  "dependencies": {
-    "body-parser": "^2.2.0",
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "pg": "^8.14.1"
+  "name": "final-sys-root",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix attendance-frontend\" \"node attendance-prod-server/src/server.js\""
   }
 }

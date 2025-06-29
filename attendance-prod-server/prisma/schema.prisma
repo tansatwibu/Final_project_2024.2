@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String   // Lưu hash mật khẩu
+  createdAt DateTime @default(now())
+}
+
+model Employee {
+  id            Int             @id @default(autoincrement())
+  name          String
+  rfidTag       String          @unique
+  logs          AttendanceLog[]
+  productions   ProductionLog[]
+  Alert         Alert[]
+  ActiveSession ActiveSession?
+}
+
+model Shift {
+  id              Int             @id @default(autoincrement())
+  name            String
+  startTime       DateTime
+  endTime         DateTime
+  plannedQuantity Int
+  attendanceLogs  AttendanceLog[]
+  productionLogs  ProductionLog[]
+  Alert           Alert[]
+  ActiveSession   ActiveSession[]
+}
+
+model Product {
+  id          Int             @id @default(autoincrement())
+  code        String          @unique
+  name        String
+  productions ProductionLog[]
+}
+
+model AttendanceLog {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  employeeId Int
+  shift      Shift    @relation(fields: [shiftId], references: [id])
+  shiftId    Int
+  timestamp  DateTime @default(now())
+  type       String // "IN"|"OUT"
+}
+
+model ProductionLog {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  employeeId Int
+  shift      Shift    @relation(fields: [shiftId], references: [id])
+  shiftId    Int
+  product    Product  @relation(fields: [productId], references: [id])
+  productId  Int
+  timestamp  DateTime @default(now())
+  quantity   Int      @default(1)
+}
+
+model ActiveSession {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [id])
+  employeeId Int      @unique
+  shift      Shift    @relation(fields: [shiftId], references: [id])
+  shiftId    Int
+  startedAt  DateTime @default(now())
+}
+
+model Alert {
+  id         Int       @id @default(autoincrement())
+  type       String // "late","absent","underproduction"
+  employee   Employee? @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  employeeId Int?
+  shift      Shift     @relation(fields: [shiftId], references: [id])
+  shiftId    Int
+  date       DateTime
+  message    String
+  createdAt  DateTime  @default(now())
+  status     String    @default("new")
+}
